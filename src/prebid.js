@@ -1,9 +1,13 @@
-import './request';
-import { version } from '../package.json';
+import { Auction } from './auction';
 
-function main () {
-  console.log('user agent: ', navigator.userAgent);
-  console.log('version: ', version);
-}
+const bidders = {};
 
-main();
+export const Prebid = configuration => {
+  return {
+    requestBids() {
+      return new Auction(configuration);
+    }
+  }
+};
+
+export const getBidder = bidder => this.bidders[bidder];

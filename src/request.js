@@ -1,9 +1,16 @@
-let pbjs = pbjs || {};
+import { getBidder } from './prebid';
+import { Bid } from './types/Bid';
+import { Response } from './response';
 
-import { getCommonThings } from './common';
+let _config;
 
-export function requestBids() {
-  console.log(getCommonThings('request module'));
+export function Request(config) {
+  _config = config;
+  return callBids(done, errors).then()
 }
 
-requestBids();
+const callBids = () => new Promise((resolve, reject) => getBidder(_config).callBids(createBids()));
+
+const createBids = config => config.map(item => new Bid(item));
+
+const done = () => { }
