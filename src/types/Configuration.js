@@ -1,6 +1,16 @@
+
+
+// question: will quoted key names in a pojo get min'ed? That syntax used here
+// to suggest this is all just JSON and could either be built in to Prebid or requested from
+// CDN, JSON API, etc.
+
 export const Configuration = {
   "configuration": {
     "global": "pbjs",
+    "bidderSettings": {},
+    "bidderTimeout": 1500,
+    "logging": false,
+    "publisherDomain": ""
     "CONSTANTS": {
       "JSON_MAPPING": {
         "PL_CODE": "code",
@@ -67,6 +77,5 @@ export const Configuration = {
         "DEFAULT_ENDPOINT": "https://prebid.adnxs.com/pbs/v1/auction"
       }
     }
-
   }
 }
